@@ -27,5 +27,8 @@
     },
     "search" : {
         "placeholder" : "type movie name to search"
+    },
+    "breadcrumb" : {
+        "movies" : "Movies"
     }
 }

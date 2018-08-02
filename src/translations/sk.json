@@ -27,5 +27,8 @@
     },
     "search" : {
         "placeholder" : "zadajte meno filmu pre vyhľadanie"
+    },
+    "breadcrumb" : {
+        "movies" : "Filmy"
     }
 }

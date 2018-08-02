@@ -17,7 +17,7 @@ class MovieDetailPage extends Component {
     render() {
         const { movie, loading, error, t } = this.props;
         const breadCrumbItems = !loading && movie && [{
-            name : 'Movies',
+            name : t('breadcrumb.movies'),
             link : '/'
         }, {
             name : movie.Title,

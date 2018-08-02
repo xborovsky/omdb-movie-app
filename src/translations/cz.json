@@ -27,5 +27,8 @@
     },
     "search" : {
         "placeholder" : "zadejte jméno filmu pro vyhledání"
+    },
+    "breadcrumb" : {
+        "movies" : "Filmy"
     }
 }
