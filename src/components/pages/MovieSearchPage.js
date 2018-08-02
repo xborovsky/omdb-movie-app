@@ -8,6 +8,7 @@ import ElementWrapper from '../common/ElementWrapper';
 import { doFetchMovies, doSearch } from '../../redux/actions';
 import { storageManager, SEARCH_TEXT_KEY, SEARCH_PAGE_NUM } from '../../utils/storage-manager';
 import Alert from '../common/Alert';
+import { translate } from 'react-i18next';
 
 class MovieSearchPage extends Component {
     componentDidMount() {
@@ -16,28 +17,28 @@ class MovieSearchPage extends Component {
           this.props.onSearch(searchTextFromStorage, storageManager.getFromSessionStorage(SEARCH_PAGE_NUM));
         }
         this.focus();
-      }
+    }
 
-      focus = () => this.itemRef.focus();
+    focus = () => {
+        this.searchInput && this.searchInput.focus();
+    };
 
-      inputRef = (ref) => this.itemRef = ref;
-
-      loadNextHandler = () => {
+    loadNextHandler = () => {
         const { onLoadNextResults, currentPage, searchText } = this.props;
         onLoadNextResults(searchText, currentPage + 1);
-      };
+    };
 
-      render() {
-        const { loading, movies, totalResults, searchText, onSearchTextChange, error } = this.props;
+    render() {
+        const { loading, movies, totalResults, searchText, onSearchTextChange, error, t } = this.props;
 
         return (
           <div className="container">
-            <Search inputRef={this.inputRef} searchText={searchText} onSearchTextChange={onSearchTextChange} />
+            <Search inputRef={el => this.searchInput = el} searchText={searchText} onSearchTextChange={onSearchTextChange} />
             <ElementWrapper>
                 <Movies movies={movies} />
                 {
                   movies.length > 0 && movies.length < totalResults ?
-                    <Button type="button" value="Load more..." classNames="btn btn-primary" onClick={this.loadNextHandler} /> :
+                    <Button type="button" value={t('load_more')} classNames="btn btn-primary" onClick={this.loadNextHandler} /> :
                     null
                 }
               </ElementWrapper>
@@ -45,7 +46,7 @@ class MovieSearchPage extends Component {
               <Loader /> :
               null
             }
-            { error && <Alert type="danger" heading="Ooops, and error occured!" message={error.message} /> }
+            { error && <Alert type="danger" heading={t('error.heading')} message={error.message} /> }
           </div>
         );
     }
@@ -66,4 +67,4 @@ const mapDispatchToProps = dispatch => ({
     onSearchTextChange : (e) => {dispatch(doSearch(e.target.value))}
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieSearchPage);
+export default translate('translations')(connect(mapStateToProps, mapDispatchToProps)(MovieSearchPage));

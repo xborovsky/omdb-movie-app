@@ -1,0 +1,31 @@
+{
+    "jumbotron" : {
+        "heading" : "Welcome to OMDB movie app!"
+    },
+    "error" : {
+        "heading" : "Ooops, and error occured!"
+    },
+    "load_more" : "Load more...",
+    "poster" : {
+        "title" : "Movie poster"
+    },
+    "movie" : {
+        "detail" : {
+            "rating" : "Rating (IMDB)",
+            "year" : "Year",
+            "length" : "Length",
+            "actors" : "Actors",
+            "genre" : "Genre",
+            "language" : "Language",
+            "awards" : "Awards",
+            "dvd" : "DVD",
+            "director" : "Director",
+            "plot" : "Plot",
+            "production" : "Production",
+            "website" : "Website"
+        }
+    },
+    "search" : {
+        "placeholder" : "type movie name to search"
+    }
+}

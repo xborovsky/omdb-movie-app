@@ -1,6 +1,7 @@
 import React from 'react';
+import { translate } from 'react-i18next';
 
-const MovieDetail = ({movie}) =>
+const MovieDetail = ({movie, t}) =>
     <div className="row">
         <div className="col-12">
             <div className="card">
@@ -8,74 +9,74 @@ const MovieDetail = ({movie}) =>
                 <div className="card-body">
                     <div className="row">
                         <div className="col-sm-12 col-md-4">
-                            <img src={movie.Poster === 'N/A' ? '/img/no-image-available.jpg' : movie.Poster} alt="Movie poster" className="img-fluid" />
+                            <img src={movie.Poster === 'N/A' ? '/img/no-image-available.jpg' : movie.Poster} alt={t('poster.title')} className="img-fluid" />
                         </div>
                         <div className="col-sm-12 col-md-8">
                             <table className="table">
                                 <tbody>
                                     {movie.imdbRating !== 'N/A' &&
                                         <tr>
-                                            <th>Rating (IMDB)</th>
+                                            <th>{t('movie.detail.rating')}</th>
                                             <td><strong>{movie.imdbRating}</strong>/10 ({movie.imdbVotes} votes)</td>
                                         </tr>
                                     }
                                     <tr>
-                                        <th>Year</th>
+                                        <th>{t('movie.detail.year')}</th>
                                         <td>{movie.Year}</td>
                                     </tr>
                                     {movie.Runtime !== 'N/A' &&
                                         <tr>
-                                            <th>Length</th>
+                                            <th>{t('movie.detail.length')}</th>
                                             <td>{movie.Runtime}</td>
                                         </tr>
                                     }
                                     {movie.Actors !== 'N/A' &&
                                         <tr>
-                                            <th>Actors</th>
+                                            <th>{t('movie.detail.actors')}</th>
                                             <td>{movie.Actors}</td>
                                         </tr>
                                     }
                                     <tr>
-                                        <th>Genre</th>
+                                        <th>{t('movie.detail.genre')}</th>
                                         <td>{movie.Genre}</td>
                                     </tr>
                                     <tr>
-                                        <th>Language</th>
+                                        <th>{t('movie.detail.language')}</th>
                                         <td>{movie.Language}</td>
                                     </tr>
                                     {movie.Awards !== 'N/A' &&
                                         <tr>
-                                            <th>Awards</th>
+                                            <th>{t('movie.detail.awards')}</th>
                                             <td>{movie.Awards}</td>
                                         </tr>
                                     }
                                     {movie.DVD !== 'N/A' &&
                                         <tr>
-                                            <th>DVD</th>
+                                            <th>{t('movie.detail.dvd')}</th>
                                             <td>{movie.DVD}</td>
                                         </tr>
                                     }
                                     {movie.Director !== 'N/A' &&
                                         <tr>
-                                            <th>Director</th>
+                                            <th>{t('movie.detail.director')}</th>
                                             <td>{movie.Director}</td>
                                         </tr>
                                     }
                                     {movie.Plot !== 'N/A' &&
                                         <tr>
-                                            <th>Plot</th>
+                                            <th>{t('movie.detail.plot')}</th>
                                             <td>{movie.Plot}</td>
                                         </tr>
                                     }
                                     {movie.Production !== 'N/A' &&
                                         <tr>
-                                            <th>Production</th>
+                                            <th>{t('movie.detail.production')}</th>
                                             <td>{movie.Production}</td>
                                         </tr>
                                     }
                                     {movie.Website !== 'N/A' &&
                                         <tr>
-                                            <th>Website</th>
+                                            <th>{t('movie.detail.website')}</th>
                                             <td><a href={movie.Website} target="_blank">{movie.Website}</a></td>
                                         </tr>
                                     }
@@ -89,4 +90,4 @@ const MovieDetail = ({movie}) =>
     </div>
 ;
 
-export default MovieDetail;
+export default translate('translations')(MovieDetail);

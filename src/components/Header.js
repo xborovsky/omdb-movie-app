@@ -1,9 +1,10 @@
 import React from 'react';
+import { translate } from 'react-i18next';
 
-const Header = () =>
+const Header = ({t}) =>
     <div className="jumbotron">
-        <h1 className="text-center">Welcome to OMDB movie app!</h1>
+        <h1 className="text-center">{t('jumbotron.heading')}</h1>
     </div>
 ;
 
-export default Header;
+export default translate('translations')(Header);

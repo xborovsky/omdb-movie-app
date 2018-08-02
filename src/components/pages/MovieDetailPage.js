@@ -6,6 +6,7 @@ import Loader from '../common/Loader';
 import { doFetchMovieDetail } from '../../redux/actions';
 import BreadCrumb from '../common/BreadCrumb';
 import Alert from '../common/Alert';
+import { translate } from 'react-i18next';
 
 class MovieDetailPage extends Component {
     componentDidMount() {
@@ -14,7 +15,7 @@ class MovieDetailPage extends Component {
     }
 
     render() {
-        const { movie, loading, error } = this.props;
+        const { movie, loading, error, t } = this.props;
         const breadCrumbItems = !loading && movie && [{
             name : 'Movies',
             link : '/'
@@ -24,7 +25,7 @@ class MovieDetailPage extends Component {
         }];
 
         return (
-            error ? <Alert type="danger" heading="Ooops, and error occured!" message={error.message} /> :
+            error ? <Alert type="danger" heading={t('error.heading')} message={error.message} /> :
                 loading ?
                     <Loader /> :
                     <ElementWrapper>
@@ -45,4 +46,4 @@ const mapDispatchToProps = dispatch => ({
     fetchMovieDetail : id => dispatch(doFetchMovieDetail(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieDetailPage);
+export default translate('translations')(connect(mapStateToProps, mapDispatchToProps)(MovieDetailPage));

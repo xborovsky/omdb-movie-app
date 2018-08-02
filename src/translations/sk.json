@@ -1,0 +1,31 @@
+{
+    "jumbotron" : {
+        "heading" : "Vitajte v OMDB filmovej aplikácii!"
+    },
+    "error" : {
+        "heading" : "Uuups, nastala chyba!"
+    },
+    "load_more" : "Načítať ďalšie...",
+    "poster" : {
+        "title" : "Plagát filmu"
+    },
+    "movie" : {
+        "detail" : {
+            "rating" : "Hodnotenie (IMDB)",
+            "year" : "Rok",
+            "length" : "Dĺžka",
+            "actors" : "Herci",
+            "genre" : "Žáner",
+            "language" : "Jazyk",
+            "awards" : "Ocenenia",
+            "dvd" : "DVD",
+            "director" : "Režisér",
+            "plot" : "Akcia",
+            "production" : "Produkcia",
+            "website" : "Web"
+        }
+    },
+    "search" : {
+        "placeholder" : "zadajte meno filmu pre vyhľadanie"
+    }
+}
