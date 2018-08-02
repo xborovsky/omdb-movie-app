@@ -37,3 +37,7 @@ input[type="text"] {
 .language-select {
   cursor: pointer;
 }
+
+.card .table {
+  table-layout: fixed;
+}

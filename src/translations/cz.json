@@ -11,7 +11,7 @@
     },
     "movie" : {
         "detail" : {
-            "rating" : "Hodnocení (IMDB)",
+            "rating" : "Hodnocení",
             "year" : "Rok",
             "length" : "Délka",
             "actors" : "Herci",

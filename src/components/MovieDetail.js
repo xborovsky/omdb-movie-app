@@ -8,16 +8,22 @@ const MovieDetail = ({movie, t}) =>
                 <h4 className="card-header">{movie.Title}</h4>
                 <div className="card-body">
                     <div className="row">
-                        <div className="col-sm-12 col-md-4">
+                        <div className="col-12 col-md-4">
                             <img src={movie.Poster === 'N/A' ? '/img/no-image-available.jpg' : movie.Poster} alt={t('poster.title')} className="img-fluid" />
                         </div>
-                        <div className="col-sm-12 col-md-8">
+                        <div className="col-12 col-md-8">
                             <table className="table">
                                 <tbody>
-                                    {movie.imdbRating !== 'N/A' &&
+                                    {movie.Ratings && movie.Ratings.length &&
                                         <tr>
                                             <th>{t('movie.detail.rating')}</th>
-                                            <td><strong>{movie.imdbRating}</strong>/10 ({movie.imdbVotes} votes)</td>
+                                            <td>
+                                                { movie.Ratings.map(rating =>
+                                                    <div key={rating.Source}>
+                                                        {rating.Source}: <strong>{rating.Value}</strong>
+                                                    </div>
+                                                ) }
+                                            </td>
                                         </tr>
                                     }
                                     <tr>

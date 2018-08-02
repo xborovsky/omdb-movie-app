@@ -11,7 +11,7 @@
     },
     "movie" : {
         "detail" : {
-            "rating" : "Hodnotenie (IMDB)",
+            "rating" : "Hodnotenie",
             "year" : "Rok",
             "length" : "Dĺžka",
             "actors" : "Herci",
