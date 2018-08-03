@@ -30,7 +30,7 @@ export function doSearch(searchText, page) {
         if (searchText && searchText.trim().length) {
             timeoutId = setTimeout(() => {
                 dispatch(doFetchMovies(searchText, page || 1));
-            }, 300);
+            }, 500);
         } else {
             dispatch(fetchMoviesSuccess([], 0));
         }
